@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('loan_amortization_schedule', function (Blueprint $table) {
+        Schema::create('loan_amortization_schedules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('loan_id');
             $table->integer('month_number');
-            $table->date('start_balance');
+            $table->double('start_balance');
             $table->double('amount')->comment('Monthly');
             $table->double('principal_amount');
             $table->double('interest_amount');
