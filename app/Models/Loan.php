@@ -17,11 +17,28 @@ class Loan extends Model
         'extra_payment'
     ];
 
-    public function amortizationSchedules(): HasMany {
+    public function amortizationSchedules(): HasMany
+    {
         return $this->hasMany(LoanAmortizationSchedule::class);
     }
 
-    public function extraRepaymentSchedules(): HasMany {
+    public function extraRepaymentSchedules(): HasMany
+    {
         return $this->hasMany(LoanExtraRepaymentSchedule::class);
+    }
+
+    public function getTermInMonths(): float|int
+    {
+        return $this->yearly_term * 12;
+    }
+
+    public function getMonthlyInterestRate(): float|int
+    {
+        return ($this->interest_rate / 12) / 100;
+    }
+
+    public function getMonthlyPayment(): float|int
+    {
+        return ($this->amount * $this->getMonthlyInterestRate()) / (1 - pow(1 + $this->getMonthlyInterestRate(), -1 * $this->getTermInMonths()));
     }
 }
