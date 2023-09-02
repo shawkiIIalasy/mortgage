@@ -25,7 +25,7 @@ class LoanFormRequest extends FormRequest
             'amount' => 'required|numeric|between:0,100000',
             'interest_rate' => 'required|numeric|between:0,100',
             'yearly_term' => 'required|numeric|between:1,35',
-            'extra_payment' => 'numeric|min: 0',
+            'extra_payment' => 'numeric|min: 0| max: ' . $this->amount,
         ];
     }
 }
