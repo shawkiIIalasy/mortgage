@@ -112,7 +112,7 @@ class LoanExtraRepaymentScheduleService implements ILoanExtraRepaymentScheduleSe
             ]);
 
             if ($lastPayment) {
-                break;
+                $extraRepaymentSchedule->delete();
             }
         }
 
