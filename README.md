@@ -1,66 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="public/images/logo.png" width="400" alt="Mortgages Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About Mortgages
 
-## About Laravel
+A mortgage loan calculator web application built using the PHP (Laravel 10) and Vue 3 is designed to assist users in making informed decisions about their mortgage loans. This application offers a range of features and functionalities related to mortgages
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Input Loan Details: Users can input essential loan details, including:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Loan amount: The total amount borrowed for the mortgage.
+- Interest rate: The annual interest rate for the loan.
+- Loan term: The duration of the mortgage in months or years.
+- Mortgage Loan Types: The application supports both fixed-term mortgages and mortgages with the option for extra repayments.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Amortization Schedule: The core functionality of the application is to generate an amortization schedule. This schedule provides a detailed breakdown of the monthly payments over the entire loan term. It includes:
 
-## Learning Laravel
+- Monthly Payment: The amount the borrower needs to pay each month.
+- Principal Component: The portion of the payment that goes toward reducing the loan balance.
+- Interest Component: The portion of the payment that represents the interest charged.
+- Loan Setup Details: The application displays a header that summarizes the essential loan setup details, ensuring users have a clear understanding of their mortgage arrangement.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Effective Interest Rate: The application calculates and displays the effective interest rate, which may differ from the nominal interest rate due to factors like extra repayments.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Extra Payments: Users have the option to make extra payments towards their mortgage. The application also generates a schedule that reflects the impact of these extra payments on the loan term and the overall interest paid.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Recalculated, Shortened Loans: The application generates schedules that show how extra payments made by the borrower can lead to a shorter loan term. This is useful for users who want to understand the benefits of making additional payments towards their mortgage.
 
-## Laravel Sponsors
+### <a href="http://ec2-18-194-164-44.eu-central-1.compute.amazonaws.com">Live Demo</a>
+## Requirements:
+### Back-End:
+- Apache or Nginx
+- PHP 8.0
+- Laravel 10.22.0
+- Mysql 8
+- Composer
+### Front-End:
+- Nodejs 18 or higher
+- Npm
+- Vue 3
+- Inertia 3
+- Vueitfy 3
+- Html
+- Css
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Instructions
 
-### Premium Partners
+- Clone project: 
+  ``git clone https://github.com/shawkiIIalasy/mortgage.git``
+- Move to project folder:
+  ``cd mortgage``
+- Run Composer:
+  ``composer install``
+- Create Enviroments file:
+  ``cp .env.example .env``
+- Setup Database Credential in .env: 
+  - ``DB_CONNECTION=mysql``
+  - ``DB_HOST={Database Host}``
+  - ``DB_PORT={Database Port}``
+  - ``DB_DATABASE={Database Name}``
+  - ``DB_USERNAME={Database User}``
+  - ``DB_PASSWORD={Password}``
+- Generate Artisan Key:
+  ``php artisan key:generate``
+- Run Migrations: 
+  ``php artisan migrate``
+- Run Npm install:
+  ``npm install``
+- Run Npm:
+  - ``npm run build`` for production
+  - ``npm run dev`` for development
+- Run Server:
+  - ``php artisan serve`` for development
+  
+## Collection:
+Postman: https://www.postman.com/winter-station-777177/workspace/mortgage-api-s/collection/10433486-97d41b5e-04b5-467b-a45d-d104acf51d20?action=share&creator=10433486
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## API'S
+### Loans
+-  ``{{BASE_URL}}/api/v0/loans`` `GET` `INDEX`
+-  ``{{BASE_URL}}/api/v0/loans/{id}`` `GET` `SHOW`
+-  ``{{BASE_URL}}/api/v0/loans`` `POST` `CREATE`
+-  ``{{BASE_URL}}/api/v0/loans/{id}`` `PUT` `UPDATE`
 
-## Contributing
+### Amortizations
+-  ``{{BASE_URL}}/api/v0/amortizations`` `GET` `INDEX`
+-  ``{{BASE_URL}}/api/v0/amortizations/{id}`` `GET` `SHOW`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Extra Payment
+-  ``{{BASE_URL}}/api/v0/extra-payments`` `GET` `INDEX`
+-  ``{{BASE_URL}}/api/v0/extra-payments/{id}`` `GET` `SHOW`
+-  ``{{BASE_URL}}/api/v0/extra-payments/{id}`` `POST` `PAY`
 
-## Code of Conduct
+## Testing:
+Run testing: ``php artisan test``
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Seeding: 
+Run seeds: ``php artisan db:seed``
 
-## Security Vulnerabilities
+### Database Design: 
+<img src="database_design.png" width="400" alt="Database Design">
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Credits:
+<a href="https://www.linkedin.com/in/shawki-alasy" target="_blank">Shawki Alassi</a>
