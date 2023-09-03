@@ -24,7 +24,7 @@ A mortgage loan calculator web application built using the PHP (Laravel 10) and 
 
 - Recalculated, Shortened Loans: The application generates schedules that show how extra payments made by the borrower can lead to a shorter loan term. This is useful for users who want to understand the benefits of making additional payments towards their mortgage.
 
-### <a href="http://ec2-18-194-164-44.eu-central-1.compute.amazonaws.com">Live Demo</a>
+### <a href="http://ec2-3-77-124-242.eu-central-1.compute.amazonaws.com">Live Demo</a>
 ## Requirements:
 ### Back-End:
 - Apache or Nginx
