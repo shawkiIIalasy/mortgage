@@ -1,10 +1,12 @@
 <script>
 import Validation from "@/Mixins/Validation.js";
 import ResponseAlert from "@/Components/Alerts/ResponseAlert.vue";
+import {router} from "@inertiajs/vue3";
 
 export default {
     components: {ResponseAlert},
     mixins: [Validation],
+    emits: ['onSuccess'],
     data: () => ({
         amount: '',
         interest_rate: '',
@@ -40,8 +42,9 @@ export default {
                     this.response.type = 'success';
                     this.response.message = 'Loan Created Successfully';
                     this.$refs.loanForm.reset();
+                    this.$emit('onSuccess');
+                    router.visit(route('views.loans.show', {id: response.data.data.id}));
                 }).catch(error => {
-                    console.log();
                     this.response.type = 'error';
                     this.response.messages = Object.values(error.response.data.errors);
                 }).finally(() => {

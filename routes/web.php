@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::inertia('/', 'App')->name('home');
 Route::inertia('/loans/{id}', 'Loans/Show')->name('views.loans.show');
+Route::inertia('/loans/{id}/edit', 'Loans/Edit')->name('views.loans.edit');
+Route::inertia('loans/{loan}/amortizations/{id}', 'Amortizations/Show')->name('views.amortizations.show');
+Route::inertia('loans/{loan}/extra-payments/{id}', 'ExtraPayments/Show')->name('views.extra-payments.show');

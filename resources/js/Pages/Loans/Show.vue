@@ -3,7 +3,7 @@ import DefaultLayout from '@/Layouts/DefaultLayout.vue';
 import AmortizationTable from "@/Components/Amortizations/AmortizationTable.vue";
 import ExtraPaymentTable from "@/Components/ExtraPayments/ExtraPaymentTable.vue";
 import {ref} from "vue";
-import {usePage} from '@inertiajs/vue3';
+import {usePage, Link} from '@inertiajs/vue3';
 
 defineOptions({layout: DefaultLayout});
 
@@ -27,8 +27,15 @@ loadLoan();
 
 <template>
     <v-card variant="elevated" elevation="5" class="mb-5 rounded-lg">
-        <v-card-title class="text-primary font-weight-bold">
-            Loans Details:
+        <v-card-title class="text-primary font-weight-bold d-flex justify-space-between">
+            <div>
+                Loans Details:
+            </div>
+            <div>
+                <Link :href="route('views.loans.edit', {id: $page.props.ziggy.route.parameters.id})">
+                    <v-btn color="primary" prepend-icon="mdi-pencil">Edit</v-btn>
+                </Link>
+            </div>
         </v-card-title>
         <v-card-item>
             <v-card-text class="font-weight-bold">
@@ -37,7 +44,7 @@ loadLoan();
             <v-card-text class="font-weight-bold">
                 Interest Rate: {{ loan.interest_rate }}%
             </v-card-text>
-            <v-card-text v-if="loan.extra_payment" class="font-weight-bold">
+            <v-card-text class="font-weight-bold">
                 Effective Interest Rate: {{ loan.yearly_effective_interest_rate }}%
             </v-card-text>
             <v-card-text class="font-weight-bold">

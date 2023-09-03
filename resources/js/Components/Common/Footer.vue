@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <v-footer class="text-center d-flex flex-column" fixed >
+    <v-footer class="text-center">
         <div class="d-flex justify-space-between w-100">
             <div>
                 Laravel v{{ $page.props.laravelVersion }} (PHP v{{ $page.props.phpVersion }})

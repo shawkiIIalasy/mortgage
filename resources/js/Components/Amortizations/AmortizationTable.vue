@@ -49,5 +49,10 @@ export default {
         hide-actions
         @update:page="loadItems"
     >
+        <template v-slot:item.actions="{ item }">
+            <Link :href="route('views.amortizations.show', {id: item.raw.id, loan: item.raw.loan.id})">
+                <v-icon size="small" class="me-2" icon="mdi-magnify"/>
+            </Link>
+        </template>
     </v-data-table-server>
 </template>

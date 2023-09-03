@@ -10,8 +10,8 @@ const dialog = ref(false);
 <template>
     <v-app>
         <Header />
-        <v-main>
-            <v-container>
+        <v-main class="d-flex flex-column h-100">
+            <v-container class="flex-1-1">
                 <slot />
 
                 <v-tooltip text="Create New Loan">
@@ -29,12 +29,12 @@ const dialog = ref(false);
                             Create New Loan
                         </v-card-title>
                         <v-card-item>
-                            <LoanForm />
+                            <LoanForm @onSuccess="dialog = false"/>
                         </v-card-item>
                     </v-card>
                 </v-dialog>
             </v-container>
-            <Footer />
+            <Footer class="mt-auto flex-0-0"/>
         </v-main>
     </v-app>
 </template>

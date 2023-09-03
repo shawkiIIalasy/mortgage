@@ -52,7 +52,7 @@ export default {
             <Link :href="route('views.loans.show', {id: item.raw.id})">
                 <v-icon size="small" class="me-2" icon="mdi-magnify"/>
             </Link>
-            <Link :href="route('views.loans.show', {id: item.raw.id})">
+            <Link :href="route('views.loans.edit', {id: item.raw.id})">
                 <v-icon size="small" icon="mdi-pencil"/>
             </Link>
         </template>
