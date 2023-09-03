@@ -94,6 +94,7 @@ Run testing: ``php artisan test``
 
 ## Seeding: 
 Run seeds: ``php artisan db:seed``
+Run Loan seeder: ``php artisan db:seed LoanSeeder`` to generate random loans
 
 ### Database Design: 
 <img src="database_design.png" width="400" alt="Database Design">
