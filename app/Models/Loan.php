@@ -41,4 +41,9 @@ class Loan extends Model
     {
         return ($this->amount * $this->getMonthlyInterestRate()) / (1 - pow(1 + $this->getMonthlyInterestRate(), -1 * $this->getTermInMonths()));
     }
+
+    public function getEffectiveInterestRate(): float|int
+    {
+        return (pow(1 + $this->interest_rate / 100 / $this->getTermInMonths(), $this->getTermInMonths()) - 1) * 100;
+    }
 }

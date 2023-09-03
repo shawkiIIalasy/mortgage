@@ -37,6 +37,9 @@ loadLoan();
             <v-card-text class="font-weight-bold">
                 Interest Rate: {{ loan.interest_rate }}%
             </v-card-text>
+            <v-card-text v-if="loan.extra_payment" class="font-weight-bold">
+                Effective Interest Rate: {{ loan.yearly_effective_interest_rate }}%
+            </v-card-text>
             <v-card-text class="font-weight-bold">
                 Term: {{ loan.yearly_term }} years
             </v-card-text>
