@@ -1,47 +1,40 @@
 <script setup>
+import Header from '@/Components/Common/Header.vue';
+import Footer from "@/Components/Common/Footer.vue";
+import LoanForm from "@/Components/Loans/LoanForm.vue";
+import {ref} from "vue";
 
+const dialog = ref(false);
 </script>
 
 <template>
-    <div>
-        <v-card>
-            <v-layout>
-                <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
+    <v-app>
+        <Header />
+        <v-main class="d-flex flex-column h-100">
+            <v-container class="flex-1-1">
+                <slot />
 
-                <v-app-bar
-                    color="primary"
-                    prominent
+                <v-tooltip text="Create New Loan">
+                    <template v-slot:activator="{ props }">
+                        <v-btn v-bind="props" @click.stop="dialog = true" icon="mdi-plus" size="x-large" variant="flat" color="primary" class="position-fixed" style="bottom: 2rem; right: 2rem; z-index: 2" />
+                    </template>
+                </v-tooltip>
+
+                <v-dialog
+                    v-model="dialog"
+                    max-width="600"
                 >
-                    <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-                    <v-toolbar-title>My files</v-toolbar-title>
-
-                    <v-spacer></v-spacer>
-
-                    <v-btn variant="text" icon="mdi-magnify"></v-btn>
-
-                    <v-btn variant="text" icon="mdi-filter"></v-btn>
-
-                    <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
-                </v-app-bar>
-
-                <v-navigation-drawer
-                    v-model="drawer"
-                    location="bottom"
-                    temporary
-                >
-                    <v-list
-                        :items="items"
-                    ></v-list>
-                </v-navigation-drawer>
-
-                <v-main style="height: 500px;">
-                    <v-card-text>
-                        The navigation drawer will appear from the bottom on smaller size screens.
-                    </v-card-text>
-                </v-main>
-            </v-layout>
-        </v-card>
-        <slot />
-    </div>
+                    <v-card class="mb-5">
+                        <v-card-title>
+                            Create New Loan
+                        </v-card-title>
+                        <v-card-item>
+                            <LoanForm @onSuccess="dialog = false"/>
+                        </v-card-item>
+                    </v-card>
+                </v-dialog>
+            </v-container>
+            <Footer class="mt-auto flex-0-0"/>
+        </v-main>
+    </v-app>
 </template>

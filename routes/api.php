@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V0\LoanAmortizationController;
+use App\Http\Controllers\Api\V0\LoanController;
+use App\Http\Controllers\Api\V0\LoanExtraPaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v0')->group(function () {
+    Route::apiResource('loans', LoanController::class);
+    Route::apiResource('loans/{loan}/amortizations', LoanAmortizationController::class)->only('index', 'show');
+    Route::apiResource('loans/{loan}/extra-payments', LoanExtraPaymentController::class)->only('index', 'show');
+    Route::post('loans/{loan}/extra-payments/{id}', [LoanExtraPaymentController::class, 'pay']);
+
 });

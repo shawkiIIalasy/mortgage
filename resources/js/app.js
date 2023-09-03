@@ -12,12 +12,30 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import * as labsComponents from 'vuetify/labs/components'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
+const customLightTheme = {
+    dark: false,
+    colors: {
+        primary: '#03387a',
+        background: '#e5e7eb'
+    },
+}
+
 const vuetify = createVuetify({
-    components,
+    components: {
+        ...components,
+        ...labsComponents
+    },
     directives,
+    theme: {
+        defaultTheme: 'customLightTheme',
+        themes: {
+            customLightTheme
+        },
+    },
 })
 
 createInertiaApp({

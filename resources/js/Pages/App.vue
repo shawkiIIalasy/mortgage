@@ -1,25 +1,21 @@
 <script setup>
 import { Head } from '@inertiajs/vue3';
 import DefaultLayout from '@/Layouts/DefaultLayout.vue';
+import LoanTable from "@/Components/Loans/LoanTable.vue";
 
 defineOptions({ layout: DefaultLayout });
 
-defineProps({
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
-    },
-});
 </script>
 
 <template>
-    <Head title="Mortgage" />
+    <Head title="Mortgages" />
 
-    <div>
-        Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
-    </div>
+    <v-card variant="elevated" elevation="5" class="mb-5 rounded-lg">
+        <v-card-title class="text-primary font-weight-bold">
+            Loans List
+        </v-card-title>
+        <v-card-item>
+            <LoanTable />
+        </v-card-item>
+    </v-card>
 </template>
