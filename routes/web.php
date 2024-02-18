@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +12,8 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return Inertia::render('App', [
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::inertia('/', 'App')->name('home');
+Route::inertia('/loans/{id}', 'Loans/Show')->name('views.loans.show');
+Route::inertia('/loans/{id}/edit', 'Loans/Edit')->name('views.loans.edit');
+Route::inertia('loans/{loan}/amortizations/{id}', 'Amortizations/Show')->name('views.amortizations.show');
+Route::inertia('loans/{loan}/extra-payments/{id}', 'ExtraPayments/Show')->name('views.extra-payments.show');
